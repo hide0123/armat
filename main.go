@@ -1,15 +1,14 @@
 package main
 
 import (
+	"bytes"
 	"github.com/labstack/echo"
+	"github.com/tidwall/gjson"
 	"html/template"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"os"
-
-	"bytes"
-	"github.com/tidwall/gjson"
-	"io/ioutil"
 	"strconv"
 )
 
@@ -99,7 +98,11 @@ func index(c echo.Context) error {
 
 	code := c.QueryParam("code")
 
-	if len(code) >= 4 {
+	if code == "nop" {
+		mode = "ASM"
+		arm = convert("mov r0, r0", false, false)
+		thumb = convert("mov r8, r8", false, true)
+	} else if len(code) >= 4 {
 		_, err := strconv.ParseInt(code[:4], 16, 32)
 
 		if err == nil {
