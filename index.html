@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>ARM analysis tool</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <center>
+    <h1>ARM analysis tool</h1>
+    <form action="/" method="GET">
+      <label for="code">Code</label>
+      <input type="text" id="code" name="code" value="{{.code}}" placeholder="HEX or ASM">
+      <input type="submit">
+    </form>
+    <table border="1" width="350" cellpadding="10">
+      <tr>
+        <th width="30%">Type</th>
+        <td width="70%">{{.type}}</td>
+      </tr>
+      <tr>
+        <th>Code</th>
+        <td>{{.code}}</td>
+      </tr>
+      <tr>
+        <th>Arm</th>
+        <td>{{.arm}}</td>
+      </tr>
+      <tr>
+        <th>Thumb</th>
+        <td>{{.thumb}}</td>
+      </tr>
+    </table>
+  </center>
+</body>

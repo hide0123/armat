@@ -1,0 +1,27 @@
+body {
+    font-family: monospace;
+    font-size: 125%;
+    font-weight: bold;
+    color: white;
+    background: dimgray;
+}
+
+h1 {
+    font-family: 'Ubuntu', sans-serif;;
+}
+
+input {
+    background: lightgray;
+}
+
+table {
+    margin: 20px;
+}
+
+table th {
+    background: slategray;
+}
+
+table td {
+    background: darkslategray;
+}
