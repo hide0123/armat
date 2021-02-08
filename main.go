@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func convert(code string, hex bool, thumb bool) string {
@@ -98,7 +99,7 @@ func index(c echo.Context) error {
 
 	code := c.QueryParam("code")
 
-	if code == "nop" {
+	if "NOP" == strings.ToUpper(code) {
 		mode = "ASM"
 		arm = convert("mov r0, r0", false, false)
 		thumb = convert("mov r8, r8", false, true)
